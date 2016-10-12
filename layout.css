@@ -5,16 +5,39 @@ body {
 nav {
     background-color: #1F1F21;
     width: 100vw;
-    height:10vh;
-    font-size:5vh;
-    color:white;
-    position:fixed;
-    top:0;
-    left:0;   
+    height: 10vh;
+    font-size: 5vh;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 #header {
-    position:relative;
-    top:2vh;
-    left:2.5vw;
+    position: relative;
+    top: 2vh;
+    left: 1.5vw;
+}
+
+#board {
+    position: fixed;
+    top: 15vh;
+    left: 2.5vw;
+    font-size: 5vh;
+}
+
+/* maybe specify for the board element */
+td {
+    width: 11.5vw;
+    height: 10vh;
+    text-align: center;
+    background-color: #FFCC80;
+}
+
+tr:nth-child(even) td:nth-child(odd), tr:nth-child(odd) td:nth-child(even) {
+    background-color: #FB8C00;
+}
+
+td:hover {
+    background-color: #E65100 !important;
 }
