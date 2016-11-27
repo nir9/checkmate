@@ -19,8 +19,36 @@ $(function () {
 
 /* also check to see if the move is ok */
 function doTurn(from, to) {
-    console.log("DOTURN;");
-    board[to.row][from.col] = board[from.row][from.col];
+
+    console.log("DOTURN; going from", from.row, from.col, "To", to.row, to.col);
+
+    /* First check if move is according to the rules */
+    switch(board[from.row][from.col]) {
+        case EMPTY:
+            console.log("Cant move nothing :)");
+            return;
+        case PAWN:
+            if(to.row == from.row-1 && to.col == from.col) {
+                console.log("asDASD");
+                break;
+            }
+        case KNIGHT:
+            if(to.row == from.row-2 && to.col == from.col+1) {
+                break;
+            }
+        case BISHOP:
+            if(Math.abs(to.row - from.row) == Math.abs(to.col - from.col)) {
+                break;
+            }
+            //else if(to.row == )
+        default:
+            return;
+    }
+
+
+    /* Destination Point change */
+    board[to.row][to.col] = board[from.row][from.col];
+    /* Clean Source Point */
     board[from.row][from.col] = EMPTY;
     drawBoard();
 }
@@ -38,9 +66,10 @@ function initBoard() {
 }
 
 function clickEvent(e) {
-    console.log("ASdSAD");
+    console.log("Clicked!");
     var row = $(this).parent('tr').index();
     var col = $(this).index();
+
 
     console.log(row, col);
 
@@ -49,7 +78,7 @@ function clickEvent(e) {
         doTurn(pendingMove, new Point(row, col));
         pendingMove = new Point();
     } else {
-        console.log("asdasd");
+        console.log("Pend Move");
         pendingMove = new Point(row, col);
     }
     //}
