@@ -41,3 +41,7 @@ tr:nth-child(even) td:nth-child(odd), tr:nth-child(odd) td:nth-child(even) {
 td:hover {
     background-color: #E65100 !important;
 }
+
+.white-piece {
+    color:white;
+}

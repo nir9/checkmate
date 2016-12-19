@@ -1,11 +1,14 @@
 var board; // [row, col]
-var EMPTY = '';
-var PAWN = 'P';
-var KNIGHT = 'Kn';
-var ROOK = 'R';
-var BISHOP = 'B';
-var KING = 'Ki';
-var QUEEN = 'Q';
+var EMPTY = '',
+    PAWN = 'P',
+    KNIGHT = 'Kn',
+    ROOK = 'R',
+    BISHOP = 'B',
+    KING = 'Ki',
+    QUEEN = 'Q';
+
+var WHITE_PIECE = "<span class='white-piece'>",
+    END_WHITE_PIECE = "</span>";
 
 var turn = 0;
 var pendingMove = new Point();
@@ -91,18 +94,20 @@ function initEvents() {
 function setupBoard() {
     for (var i = 0; i <= 8; i++) {
         board[1][i] = PAWN;
-        board[6][i] = PAWN;
+        board[6][i] = WHITE_PIECE + PAWN + END_WHITE_PIECE;
     }
 
     for (var i = 0; i < 2; i++) {
-        board[i * 7][0] = ROOK;
-        board[i * 7][1] = KNIGHT;
-        board[i * 7][2] = BISHOP;
-        board[i * 7][3] = QUEEN;
-        board[i * 7][4] = KING;
-        board[i * 7][5] = BISHOP;
-        board[i * 7][6] = KNIGHT;
-        board[i * 7][7] = ROOK;
+        var h = (i == 1 ? WHITE_PIECE : ""); // header
+        var f = (i == 1 ? END_WHITE_PIECE : ""); // footer
+        board[i * 7][0] = h + ROOK + f;
+        board[i * 7][1] = h + KNIGHT + f;
+        board[i * 7][2] = h + BISHOP + f;
+        board[i * 7][3] = h + QUEEN + f;
+        board[i * 7][4] = h + KING + f;
+        board[i * 7][5] = h + BISHOP + f;
+        board[i * 7][6] = h + KNIGHT + f;
+        board[i * 7][7] = h + ROOK + f;
     }
 
     console.log(board);
