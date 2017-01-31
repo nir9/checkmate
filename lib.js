@@ -1,12 +1,13 @@
 function Point(row, col) {
-    this.row = -1;
-    this.col = -1;
+    this.row = -4;
+    this.col = -4;
 
-    if(row) {
+    if(row >= 0) {
         this.row = row;
     }
 
-    if(col) {
+    if(col >= 0) {
         this.col = col;
     }
+    
 }
