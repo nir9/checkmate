@@ -87,7 +87,7 @@ function doTurn(from, to) {
         }
     }
     else if(piece == KNIGHT || piece == "W" + KNIGHT) {
-        if (!(to.row == from.row - 2 && to.col == from.col + 1)) {
+        if (!((to.row == from.row - 2 && to.col == from.col + 1) || (to.row == from.row + 2 && to.col - 1)|| (to.row == from.row - 1 && to.col + 2)|| (to.row == from.row + 1 && to.col - 2) || (to.row == from.row + 2 && to.col + 1)|| (to.row == from.row - 2 && to.col - 1))) {
             return;
         }
     }
